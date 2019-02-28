@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>舱位产品信息更新</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta content="" name="description" />
+    <meta content="webthemez" name="author" />
+    <link type="text/css" href="__PUBLIC__/__CSS__/bootstrap.css" rel="stylesheet"/>
+    <link type="text/css" href="__PUBLIC__/__CSS__/font-awesome.css" rel="stylesheet"/>
+    <link type="text/css" href="__PUBLIC__/__CSS__/custom-styles.css" rel="stylesheet"/>
+    <link type="text/css" href="__PUBLIC__/__CSS__/manager_common.css" rel="stylesheet">
+    <link type="text/css" href="__PUBLIC__/__CSS__/manager_addflight.css" rel="stylesheet">
+
+    <script src="__PUBLIC__/__JS__/jquery-1.10.2.js"></script>
+    <script src="__PUBLIC__/__JS__/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/__JS__/jquery.metisMenu.js"></script>
+    <script src="__PUBLIC__/__JS__/custom-scripts.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{:url('flights/put')}"><strong><i class="icon fa fa-plane"></i> 航空管理系统</strong></a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>{$Think.session.account}</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{:url('login/logout')}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>
+			</ul>
+        </nav>
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a href="{:url('flights/put')}"><i class="fa fa-dashboard"></i> 航班信息管理</a>
+                    </li>
+                    <li>
+						<a href="{:url('dynflight/put')}"><i class="fa fa-desktop"></i> 动态航班信息管理</a>
+					</li>					 
+                    <li>
+                    	<a class="active-menu" href="{:url('product/put')}"><i class="fa fa-sitemap"></i> 舱位产品信息管理</a>
+                    </li>
+                    <li>
+                    	<a href="{:url('index/manager_monthreport')}"><i class="fa fa-qrcode"></i> 航班月度信息分析</a>
+                    </li>
+                    <li>
+                    	<a href="{:url('rules/managerput')}"><i class="fa fa-table"></i> 退换票规则管理</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+			<div class="header"> 
+				<h1 class="page-header">
+                    Admin {$Think.session.account}<small>Welcome</small>
+				</h1>
+			</div>
+			<div id="content">
+                <div id="innercontent">
+                    <h3>舱位产品信息</h3><br>
+                    <form id="contentform" action="{:url('product/update')}" method="post">
+                        <label>航班编号:</label> <input readonly="readonly" type="text" name="flightID" size="40" value="{$data.flightID}"/><br/><br/>
+                        <label>航班日期:</label>&nbsp;&nbsp;<input readonly="readonly" type="text" name="exFlightDate" size="40" value="{$data.exFlightDate}" /><br/><br/>
+                        <label>产品编号:</label>&nbsp;&nbsp;<input readonly="readonly" type="text" name="flightProductID" size="40" value="{$data.flightProductID}" /><br/><br/>
+                        <label>现金价格:</label>&nbsp;&nbsp;<input type="text" name="price" size="40" required="required" value="{$data.price}" /><br/><br/> <label>积分价格:</label>&nbsp;&nbsp;
+                        <input type="text" name="pointPrice" size="40" required="required" value="{$data.pointPrice}" /><br/><br/>
+                        <label>剩余票数:</label>&nbsp;&nbsp;<input type="text" name="leftTicketNum" size="40" required="required" value="{$data.leftTicketNum}" /><br/><br/>
+                        <label>能否销售:</label>&nbsp;&nbsp;<input type="text" name="onSale" size="40" required="required" value="{$data.onSale}" /><br/><br/>
+                        <div align="center">
+                            <input type="submit" value="提交"/>&nbsp;&nbsp;
+                            <input type="reset" value="重置" />
+                        </div>
+                    </form>
+                </div>
+			</div>
+			<div id="page-inner"> 
+				 <footer><p>Copyright &copy; 2018 中国集美蓝天航空公司.</p></footer>
+			</div>
+        </div>
+    </div>
+</body>
+</html>

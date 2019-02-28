@@ -1,0 +1,114 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>我的账户</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/user_common.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/user_account.css">
+</head>
+<body>
+<div id="header">
+    <a href="{:url('index/user_index')}"><img alt="brand" src="__PUBLIC__/__IMG__/brand.png"></a>
+    <a class="entrance" href="#">{$Think.session.account}</a>
+    <a class="entrance" href="{:url('login/logout')}">退出</a>
+</div>
+<div id="menubar">
+    <div class="dropdown">
+        <a href="{:url('index/user_index')}"><button class="dropbt">首页</button></a>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">预定管理 </button>
+        <div class="content">
+            <a href="#">机票预定</a>
+            <a href="#">旅游预定</a>
+            <a href="#">团队商旅</a>
+            <a href="#">在线选座</a>
+            <a href="#">高端选餐</a>
+            <a href="#">航班动态</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">云朵会员</button>
+        <div class="content">
+            <a href="{:url('personal/put')}">我的账户</a>
+            <a href="{:url('order/put')}">我的订单</a>
+            <a href="#">积分累计</a>
+            <a href="#">积分兑换</a>
+            <a href="#">会员权益</a>
+            <a href="#">优惠专区</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">出行帮助</button>
+        <div class="content">
+            <a href="{:url('rules/userput')}">购票服务</a>
+            <a href="#">中转服务</a>
+            <a href="#">出行准备</a>
+            <a href="#">地面服务</a>
+            <a href="#">客舱服务</a>
+            <a href="#">运输规定</a>
+        </div>
+    </div>
+</div>
+<hr>
+<div id="middle">
+    <div id="content_header">
+        <h3>我的订单</h3>
+    </div>
+    <div id="content_box">
+        <table>
+
+            <tr>
+                <th>订单编号</th>
+                <th>机票号</th>
+                <th>航班编号</th>
+                <th>航班日期</th>
+                <!--<th>舱位产品</th>-->
+                <th>乘客姓名</th>
+                <!--<th>乘客电话</th>-->
+                <!--<th>乘客证件</th>-->
+                <!--<th>乘客性别</th>-->
+                <!--<th>是否保险</th>-->
+                <!--<th>付款方式</th>-->
+                <!--<th>机票价格</th>-->
+            </tr>
+            {volist name="data" id="ticket"}
+            <tr>
+                <td>{$ticket.orderID}</td>
+                <td>{$ticket.ticketID}</td>
+                <td>{$ticket.flightID}</td>
+                <td>{$ticket.exFlightDate}</td>
+
+                <!--<td><%=orderList.get(n).getFlightProductID()%></td>-->
+                <td>{$ticket.passengerName}</td>
+                <!--<td><%=orderList.get(n).getPassengerTel()%></td>-->
+                <!--<td><%=orderList.get(n).getPassengerIDCard()%></td>-->
+                <!--<td><%=orderList.get(n).getTicketSex()%></td>-->
+                <!--<td><%=orderList.get(n).getTicketInsurance()%></td>-->
+                <!--<td><%=orderList.get(n).getTicketPayment()%></td>-->
+                <!--<td><%=orderList.get(n).getTicketPrice()%></td>-->
+            </tr>
+            {/volist}
+        </table>
+
+        <div id="pages">
+
+        </div>
+        <form method="get" action="#">
+            <!--<p>第<%=pages%>页 共<%=pageCount%>页 共<%=rowCount%>条-->
+                <!--<%-->
+                <!--if(pageCount>1){%>-->
+                <!--<a href="myOrder.jsp?page=<%=pages-1%>">上一页</a>-->
+                <!--<a href="myOrder.jsp?page=<%=pages+1%>">下一页</a>-->
+                <!--<a href="myOrder.jsp?page=<%=pageCount%>">尾页</a>-->
+                <!--跳到第<input type="text" name="page" size="4">页-->
+                <!--<input type="submit" name="submit" size="4" value="GO">-->
+                <!--<%}%>-->
+            <!--</p>-->
+        </form>
+    </div>
+</div>
+<div id="info">
+    <p>Copyright &copy; 2018 中国集美蓝天航空公司.</p>
+</div>
+</body>
+</html>

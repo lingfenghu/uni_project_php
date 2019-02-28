@@ -1,0 +1,113 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>预定机票查询</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/queryresult.css">
+</head>
+<body>
+<div id="header">
+    <a href="{:url('index/index')}"><img alt="brand" src="__PUBLIC__/__IMG__/brand.png"></a>
+    <a class="entrance" href="{:url('index/login')}">登录 </a>
+    <a class="entrance" href="{:url('index/register')}">注册</a>
+</div>
+
+<div id="menubar">
+    <div class="dropdown">
+        <a href="{:url('index/index')}"><button class="dropbt">首页</button></a>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">预定管理 </button>
+        <div class="content">
+            <a href="#">机票预定</a>
+            <a href="#">旅游预定</a>
+            <a href="#">团队商旅</a>
+            <a href="#">在线选座</a>
+            <a href="#">高端选餐</a>
+            <a href="#">航班动态</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">云朵会员</button>
+        <div class="content">
+            <a href="#">我的账户</a>
+            <a href="#">我的订单</a>
+            <a href="#">积分累计</a>
+            <a href="#">积分兑换</a>
+            <a href="#">会员权益</a>
+            <a href="#">优惠专区</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">出行帮助</button>
+        <div class="content">
+            <a href="#">购票服务</a>
+            <a href="#">中转服务</a>
+            <a href="#">出行准备</a>
+            <a href="#">地面服务</a>
+            <a href="#">客舱服务</a>
+            <a href="#">运输规定</a>
+        </div>
+    </div>
+</div>
+<hr>
+<div id="middle">
+    <div id="result_header">
+        <h3>单程</h3>
+        <label>
+            出发城市:<span style="color:blue">{$departCity}</span>&nbsp;&nbsp;
+            到达城市:<span style="color:blue">{$arriveCity}</span>&nbsp;&nbsp;
+            出发日期:<span style="color:blue">{$exFlightDate}</span>
+        </label>
+    </div>
+    <hr/>
+    <div id="result_content">
+        <form action="{:url('reserve/_initialize')}" method="post">
+            <table>
+                {volist name="allExFlightAndProduct" id="val"}
+                {if $i % 3==1}
+                <tr>
+                    <td rowspan="2">{$val.departTime}</td>
+                    <td rowspan="2">{$val.flightID}</td>
+                    <td rowspan="2">{$val.arriveTime}</td>
+                </tr>
+                <tr>
+                    <td>{$arriveCity}</td>
+                    <td>{$val.totalTime}</td>
+                    <td>{$departCity}</td>
+                {/if}
+                    {switch name="$val.flightProductID"}
+                    {case value='A'}
+                    <td>经济舱票数{$val.leftTicketNum}
+                        <br><input type="hidden" value="{$val.price}">现金￥{$val.price}
+                        <br/><input type="hidden" name="pointPriceA<%=n%>" value="{$val.pointPrice}>">积分价格:{$val.pointPrice}
+                        <input type="radio" name="flihgtProductID" value="A">
+                    </td>
+                    {/case}
+                    {case value='B'}
+                    <td>商务舱票数{$val.leftTicketNum}
+                    <br><input type="hidden" value="{$val.price}">现金￥{$val.price}
+                    <br/><input type="hidden" name="pointPriceB{$i}" value="{$val.pointPrice}>">积分价格:{$val.pointPrice}
+                    <input type="radio" name="flihgtProductID" value="B">
+                    </td>
+                    {/case}
+                    {case value='C'}
+                    <td>头等舱票数{$val.leftTicketNum}
+                    <br><input type="hidden" value="{$val.price}">现金￥{$val.price}
+                    <br/><input type="hidden" name="pointPriceC{$i}" value="{$val.pointPrice}>">积分价格:{$val.pointPrice}
+                    <input type="radio" name="flihgtProductID" value="C">          </td>
+                    {/case}
+                    {/switch}
+                {if $i %3==0}
+                    <td rowspan="2"><input type="submit" value="提交"/></td>
+                </tr>
+                {/if}
+                {/volist}
+            </table>
+        </form>
+    </div>
+</div>
+<div id="info">
+    <p>Copyright &copy; 2018 中国集美蓝天航空公司.</p>
+</div>
+</body>
+</html>

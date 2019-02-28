@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>中国蓝天航空-机票查询</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/index.css">
+<!--<link rel="stylesheet" type="text/css" href="../static/css/index.css">-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/cityselector.css">
+
+<script type="text/javascript" src="__PUBLIC__/__JS__/cityselector/cityselector.js"></script>
+<script type="text/javascript" src="__PUBLIC__/__JS__/cityselector/cityselectorset.js"></script>
+<script type="text/javascript" src="__PUBLIC__/__JS__/tabclick.js"></script>
+<script type="text/javascript" src="__PUBLIC__/__JS__/laydate/laydate.js"></script>
+<script type="text/javascript" src="__PUBLIC__/__JS__/laydate/calendarset.js"></script>
+
+</head>
+<body>
+<div id="header">
+	<a href="user_index.html"><img alt="brand" src="__PUBLIC__/__IMG__/brand.png"></a>
+	<a class="entrance" href="#">{$Think.session.account}</a>
+	<a class="entrance" href="{:url('login/logout')}">退出</a>
+</div>
+<div id="menubar">
+	<div class="dropdown">
+		<a href="user_index.html"><button class="dropbt">首页</button></a>
+	</div>	
+	<div class="dropdown">
+		<button class="dropbt">预定管理 </button>
+		<div class="content">
+			<a href="#">机票预定</a>
+			<a href="#">旅游预定</a>
+			<a href="#">团队商旅</a>
+			<a href="#">在线选座</a>
+			<a href="#">高端选餐</a>
+			<a href="#">航班动态</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbt">云朵会员</button>
+		<div class="content">
+			<a href="{:url('personal/put')}">我的账户</a>
+			<a href="{:url('order/put')}">我的订单</a>
+			<a href="#">积分累计</a>
+			<a href="#">积分兑换</a>
+			<a href="#">会员权益</a>
+			<a href="#">优惠专区</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbt">出行帮助</button>
+		<div class="content">
+			<a href="{:url('rules/userput')}">购票服务</a>
+			<a href="#">中转服务</a>
+			<a href="#">出行准备</a>
+			<a href="#">地面服务</a>
+			<a href="#">客舱服务</a>
+			<a href="#">运输规定</a>
+		</div>
+	</div>
+
+</div>
+<hr>
+<div id=middle>
+	<div id=tabbar>
+		<input id="tab1" type="button" onclick="click1()" value="机票预定">
+		<input id="tab2" type="button" onclick="click2()" value="航班动态">
+	</div>
+	<div id=tabcontent>
+		<div id="tab1_content">
+			<div id="tabbar1">
+				<input type="button" value="单程">
+			</div>
+			<form action="{:url('userqueryresult/user_queryresult1')}" method="post">
+				<table id="tab1_content1" class="tab_content">
+					<tr><td>出发城市</td><td>到达城市</td><td>出发时间</td></tr>
+					<tr>
+						<td><input id="form1_citySelect1" type="text" name="departCity" required="required"></td>
+						<td><input id="form1_citySelect2" type="text" name="arriveCity" required="required"></td>
+						<td><input id="form1_calendar" type="text" name="exFlightDate" required="required"></td>
+					</tr>
+				</table>
+				<input id="ordeTicket" type="submit" value="查询机票">
+			</form>
+		</div>
+		
+		<div id="tab2_content">
+		
+			<div id="tabbar2">
+				<input id="tab2_1" type="button" onclick="click3()" value="按航班路线">
+				<input id="tab2_2" type="button" onclick="click4()" value="按航班号">
+			</div>
+			
+			<div id="tab2_content1">
+				<form action="{:url('userqueryresult/user_queryresult2')}" method="post">
+					<table id="tab_content1" class="tab_content">
+						<tr><td>出发城市</td><td>到达城市</td><td>出发时间</td></tr>
+						<tr>
+							<td><input id="form2_citySelect1" type="text" name="departCity" required="required"></td>
+							<td><input id="form2_citySelect2" type="text" name="arriveCity" required="required"></td>
+							<td><input id="form2_calendar" type="text" name="exFlightDate" required="required"></td>
+						</tr>
+					</table>
+					<input class="queryFlight" type="submit" value="查询航班">
+				</form>
+			</div>
+			
+			<div id="tab2_content2">
+				<form action="{:url('userqueryresult/user_queryresult3')}" method="post">
+					<table id="tab_content2" class="tab_content">
+						<tr><td>航班号</td><td>出发时间</td></tr>
+						<tr>
+							<td><input id="flight" type="text" name="flightID" required="required" placeholder="例如：MF3780"></td>
+							<td><input id="form3_calendar" type="text" name="exFlightDate" required="required"></td>
+						</tr>
+					</table>
+					<input class="queryFlight" type="submit" value="查询航班">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="info">
+	<p>Copyright &copy; 2018 中国集美蓝天航空公司.</p>
+</div>
+</body>
+<!--<script type="text/javascript" src="../static/js/cityselector/cityselectorset.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/__JS__/cityselector/cityselectorset.js"></script>
+
+</html>

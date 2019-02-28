@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>乘机规则</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/rules.css">
+</head>
+<body>
+<div id="header">
+	<a href="{:url('index/user_index')}"><img src="__PUBLIC__/__IMG__/brand.png"></a>
+	<a class="entrance" href="#">{$Think.session.account}</a>
+	<a class="entrance" href="{:url('login/logout')}">退出</a>
+</div>
+<div id="menubar">
+	<div class="dropdown">
+		<a href="{:url('index/user_index')}"><button class="dropbt">首页</button></a>
+	</div>
+	<div class="dropdown">
+		<button class="dropbt">预定管理 </button>
+		<div class="content">
+			<a href="#">机票预定</a>
+			<a href="#">旅游预定</a>
+			<a href="#">团队商旅</a>
+			<a href="#">在线选座</a>
+			<a href="#">高端选餐</a>
+			<a href="#">航班动态</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbt">云朵会员</button>
+		<div class="content">
+			<a href="{:url('personal/put')}">我的账户</a>
+			<a href="{:url('order/put')}">我的订单</a>
+			<a href="#">积分累计</a>
+			<a href="#">积分兑换</a>
+			<a href="#">会员权益</a>
+			<a href="#">优惠专区</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbt">出行帮助</button>
+		<div class="content">
+			<a href="{:url('rules/userput')}">购票服务</a>
+			<a href="#">中转服务</a>
+			<a href="#">出行准备</a>
+			<a href="#">地面服务</a>
+			<a href="#">客舱服务</a>
+			<a href="#">运输规定</a>
+		</div>
+	</div>
+
+</div>
+<hr>
+<div id="middle">
+	<h3>票务规则</h3>
+	<textarea readonly="readonly">{$data['ruleContext']}</textarea>
+</div>
+<div id="info">
+	<p>Copyright &copy; 2018 中国集美蓝天航空公司.</p>
+</div>
+</body>
+</html>

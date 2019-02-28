@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>航班动态查询</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/queryresult.css">
+</head>
+<body>
+<div id="header">
+    <a href="{:url('index/index')}"><img alt="brand" src="__PUBLIC__/__IMG__/brand.png"></a>
+    <a class="entrance" href="{:url('index/login')}">登录 </a>
+    <a class="entrance" href="{:url('index/register')}">注册</a>
+</div>
+
+<div id="menubar">
+    <div class="dropdown">
+        <a href="{:url('index/index')}"><button class="dropbt">首页</button></a>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">预定管理 </button>
+        <div class="content">
+            <a href="#">机票预定</a>
+            <a href="#">旅游预定</a>
+            <a href="#">团队商旅</a>
+            <a href="#">在线选座</a>
+            <a href="#">高端选餐</a>
+            <a href="#">航班动态</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">云朵会员</button>
+        <div class="content">
+            <a href="#">我的账户</a>
+            <a href="#">我的订单</a>
+            <a href="#">积分累计</a>
+            <a href="#">积分兑换</a>
+            <a href="#">会员权益</a>
+            <a href="#">优惠专区</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">出行帮助</button>
+        <div class="content">
+            <a href="#">购票服务</a>
+            <a href="#">中转服务</a>
+            <a href="#">出行准备</a>
+            <a href="#">地面服务</a>
+            <a href="#">客舱服务</a>
+            <a href="#">运输规定</a>
+        </div>
+    </div>
+</div>
+<hr>
+<div id="middle">
+    <div id="result_header">
+        <label>
+            出发城市:<span style="color:blue">{$exFlight_flight.departCity}</span>
+            &nbsp;&nbsp;到达城市:<span style="color:blue">{$exFlight_flight.arriveCity}</span>&nbsp;&nbsp;
+            出发日期:<span style="color:blue">{$exFlight_flight.exFlightDate}</span>
+        </label>
+    </div>
+    <hr/>
+    <div id="result_content">
+        <table>
+            <tr><td>航班号</td><td>航程</td><td>日期</td><td>起飞时间</td><td>到达时间</td><td>航班状态</td></tr>
+            <tr>
+                <td>{$exFlight_flight.flightID}</td>
+                <td>{$exFlight_flight.departCity} - {$exFlight_flight.arriveCity}</td>
+                <td>{$exFlight_flight.exFlightDate}</td>
+                <td>{$exFlight_flight.departTime}</td>
+                <td>{$exFlight_flight.arriveTime}</td>
+                {if($exFlight_flight.flightStateID==1)}
+                <td>计划</td>{elseif $exFlight_flight.flightStateID==2}
+                <td>到达</td>{elseif $exFlight_flight.flightStateID==3}
+                <td>延误</td>{else $exFlight_flight.flightStateID==4}
+                <td>取消</td>
+                {/if}
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="info">
+    <p>Copyright &copy; 2018 中国集美蓝天航空公司.</p>
+</div>
+</body>
+</html>

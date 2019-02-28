@@ -1,0 +1,119 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>中国蓝天航空-机票查询</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/user_common.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/user_reserve.css">
+</head>
+<body>
+<div id="header">
+    <a href="{:url('index/user_index')}"><img alt="brand" src="__PUBLIC__/__IMG__/brand.png"></a>
+    <a class="entrance" href="#">{$Think.session.account}</a>
+    <a class="entrance" href="{:url('login/logout')}">退出</a>
+</div>
+<div id="menubar">
+    <div class="dropdown">
+        <a href="{:url('index/user_index')}"><button class="dropbt">首页</button></a>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">预定管理 </button>
+        <div class="content">
+            <a href="#">机票预定</a>
+            <a href="#">旅游预定</a>
+            <a href="#">团队商旅</a>
+            <a href="#">在线选座</a>
+            <a href="#">高端选餐</a>
+            <a href="#">航班动态</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">云朵会员</button>
+        <div class="content">
+            <a href="{:url('personal/put')}">我的账户</a>
+            <a href="{:url('order/put')}">我的订单</a>
+            <a href="#">积分累计</a>
+            <a href="#">积分兑换</a>
+            <a href="#">会员权益</a>
+            <a href="#">优惠专区</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbt">出行帮助</button>
+        <div class="content">
+            <a href="{:url('rules/userput')}">购票服务</a>
+            <a href="#">中转服务</a>
+            <a href="#">出行准备</a>
+            <a href="#">地面服务</a>
+            <a href="#">客舱服务</a>
+            <a href="#">运输规定</a>
+        </div>
+    </div>
+
+</div>
+<hr>
+<div id=middle>
+    <div id="content_header">
+        <h2>机票预订</h2>
+    </div>
+    <div id="content_box">
+        <h3>航班信息</h3>
+        <div id="flight_info">
+            <p>出发城市&nbsp;&nbsp;目的城市&nbsp;&nbsp;出发日期&nbsp;&nbsp;出发时间&nbsp;&nbsp;到达时间&nbsp;&nbsp;预计飞行时间&nbsp;&nbsp;机票单价&nbsp;&nbsp;积分单价</p>
+            <p>
+                {$Think.session.rsvData.departCity}&nbsp;&nbsp;&nbsp;{$Think.session.rsvData.arriveCity}&nbsp;
+                {$Think.session.rsvData.exFlightDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$Think.session.rsvData.departTime}
+                &nbsp;&nbsp;&nbsp;&nbsp;{$Think.session.rsvData.arriveTime}&nbsp;&nbsp;{$Think.session.rsvData.preTotalTime}&nbsp;
+                &nbsp;&nbsp;{$Think.session.rsvData.price}&nbsp;&nbsp;&nbsp;&nbsp;{$Think.session.rsvData.pointPrice}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+        </div>
+        <div id="passenger_info">
+            <form action="{:url('reserve/user_payment')}" method="post">
+                <table id="passengerarr">
+                    {volist name="$Think.session.passenger" id="val"}
+                    <tr>
+                        <td>姓名</td><td>{$val.passengerName}</td>
+                        <td>身份证</td><td>{$val.passengerIDCard}</td>
+                        <td>手机号码</td><td>{$val.passengerTel}</td>
+                        <td>性别</td>
+                        <td>
+                            {if $val.passengerSex == true}男{else}女{/if}
+                        </td>
+                        <td>保险</td>
+                        <td>
+                            {if $val.insurance == true}是{else}否{/if}
+                        </td>
+                    </tr>
+                    {/volist}
+                </table>
+                <div id="pay">
+                    <input type="radio" value="false" name="payment" required="required">积分支付
+                    <input type="radio" value="true" name="payment" required="required">现金支付
+                    <input type="submit" value="支付">
+                </div>
+            </form>
+            <form action="{:url('reserve/passenger_add')}" method="post">
+                <table id="addpassenger">
+                    <tr>
+                        <td>姓名</td><td><input type="text" name="passengerName" required="required"></td>
+                        <td>证件号</td><td><input type="text" name="passengerIDCard" required="required" pattern="\d{15}|(\d{17}(\d|X))" title="证件号码格式不正确"></td>
+                    </tr>
+                    <tr>
+                        <td>手机号码</td><td><input type="text" name="passengerTel" required="required" pattern="\d{11}" title="手机号码格式不正确"></td>
+                        <td>乘客性别</td><td><input type="radio" name="passengerSex" value="man" required="required">男<input type="radio" name="passengerSex" value="female" required="required">女</td>
+                    </tr>
+                    <tr>
+                        <td>保险</td><td><input type="checkbox" name="insurance" value="true">乘客安全险{$Think.session.rsvData.insurancePrice}/人</td>
+                    </tr>
+                    <tr><td colspan="4"><input id="add" type="submit" value="添加"></td></tr>
+                </table>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div id="info">
+    <p>Copyright &copy; 2018 中国集美蓝天航空公司.</p>
+</div>
+</body>
+</html>

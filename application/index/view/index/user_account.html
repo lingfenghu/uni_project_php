@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>我的账户</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/user_common.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/__CSS__/user_account.css">
+</head>
+<body>
+<div id="header">
+	<a href="{:url('index/user_index')}"><img alt="brand" src="__PUBLIC__/__IMG__/brand.png"></a>
+	<a class="entrance" href="#">{$Think.session.account}</a>
+	<a class="entrance" href="{:url('login/logout')}">退出</a>
+</div>
+<div id="menubar">
+	<div class="dropdown">
+		<a href="{:url('index/user_index')}"><button class="dropbt">首页</button></a>
+	</div>	
+	<div class="dropdown">
+		<button class="dropbt">预定管理 </button>
+		<div class="content">
+			<a href="#">机票预定</a>
+			<a href="#">旅游预定</a>
+			<a href="#">团队商旅</a>
+			<a href="#">在线选座</a>
+			<a href="#">高端选餐</a>
+			<a href="#">航班动态</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbt">云朵会员</button>
+		<div class="content">
+			<a href="{:url('personal/put')}">我的账户</a>
+			<a href="{:url('order/put')}">我的订单</a>
+			<a href="#">积分累计</a>
+			<a href="#">积分兑换</a>
+			<a href="#">会员权益</a>
+			<a href="#">优惠专区</a>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbt">出行帮助</button>
+		<div class="content">
+			<a href="{:url('rules/userput')}">购票服务</a>
+			<a href="#">中转服务</a>
+			<a href="#">出行准备</a>
+			<a href="#">地面服务</a>
+			<a href="#">客舱服务</a>
+			<a href="#">运输规定</a>
+		</div>
+	</div>
+</div>
+<hr>
+<div id="middle">
+	<div id="content_header">
+		<h3>基本信息</h3>
+	</div>
+	<div id="content_box">
+		<form class="center" action="{:url('personal/update')}" method="post">
+			<!--<input type="hidden" name="account" value="<%=user.getAccount()%>"/>-->
+			<table>
+				<tr>
+				<td>会员名称</td><td><input type="hidden" name="memberName">{$data.memberName}</td>
+				<td>会员级别</td><td><input type="hidden" name="memberID">{$data.memberID}</td>
+				</tr>
+				<tr>
+				<td>身份证号</td><td><input type="hidden" name="userIDCard">{$data.userIDCard}</td>
+				<td>积分</td><td><input type="hidden" name="point" value="{$data.point}">{$data.point}</td>
+				</tr>
+				<tr>
+				<td>性别</td>
+				<td>
+					<?php
+						if($data['userSex']==1){
+					?>
+						<select name="userSex">
+							<option value="1" selected="selected">男</option>
+							<option value="0">女</option>
+						</select>
+					<?php
+						}else{
+					?>
+						<select name="userSex">
+							<option value="1">男</option>
+							<option value="0" selected="selected">女</option>
+						</select>
+					<?php
+						}
+					?>
+				</td>
+				<td>电话号码</td><td><input type="hidden" name="userTel" value="{$data.userTel}" required="required" pattern="\d{11}" title="手机号码格式不正确">{$data.userTel}</td>
+				</tr>
+				<tr>
+				<td>电子邮箱</td><td><input type="text" name="email" required="required" value="{$data.email}"></td>
+				<td>密码</td>
+				<td><input type="password" name="password" required="required" pattern="\w{6,16}"
+				value="{$data.password}" title="密码只能是6-16位数字和英文字母"></td>
+				</tr>
+			</table>
+			<input id="save" type="submit" value="保存">
+		</form>
+	</div>
+</div>
+<div id="info">
+	<p>Copyright &copy; 2018 中国集美蓝天航空公司.</p>
+</div>
+</body>
+</html>
