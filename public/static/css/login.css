@@ -1,0 +1,80 @@
+@charset "UTF-8";
+html{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	font-style: sans-serif;
+}
+body{
+    width: 100%;   
+    height: 100%;
+    margin: 0px;     
+}
+#header{
+	width: 100%;
+	height: 12%;
+	padding: 5px 200px 5px;
+}
+#header a img{
+	width: 250px;
+	height: 100%;
+}
+hr{
+	margin: 0px;
+}
+#center{
+	text-align: center;
+	height: 88%;
+	background-image:url("../img/background.jpg");
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+#loginbox{
+	position: relative;
+	top: 15%;
+	left: 35%;
+	width: 400px;   
+    height: 300px;
+    border:3px solid #000000;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+#loginbox h1{
+	color: #0080c0;   
+    text-shadow: 0 0 10px;   
+    letter-spacing: 10px;  
+}
+form input{
+	width: 320px;
+    /*height: 35px;*/
+    margin-bottom: 10px;
+    padding: 10px;   
+    font-size: 15px;   
+    color: #000;
+    text-shadow: 1px 1px;   
+    border:1px solid #0000ff;
+    border-radius: 5px;   
+    background-color: #ffffff;
+}
+form #button{
+	width: 340px;
+	height: 40px;
+	border: 1px solid;  
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #17b9e8;
+}
+#register{
+	font-size:20px;
+	margin-right:40px;
+	float: right;
+}
+#info{
+	position: relative;
+	top: 15%;
+	left: 35%;
+	width: 400px;
+	font-size: 20px;
+}

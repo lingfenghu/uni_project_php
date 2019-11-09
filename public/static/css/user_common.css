@@ -1,0 +1,98 @@
+@charset "UTF-8";
+html{
+    /*overflow-x: hidden;*/
+    /*overflow-y: hidden;*/
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+div{
+    margin: 0px;
+    padding: 0px;
+}
+#header{
+    width: 100%;
+    height: 12%;
+    padding: 5px 200px 5px;
+    background-color: white;
+}
+#header a img{
+    width: 250px;
+    height: 100%;
+}
+#header .entrance{
+    position: relative;
+    left: 50%;
+    text-decoration: none;
+}
+#menubar{
+    width: 100%;
+    height: 10%;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    z-index: 999;
+}
+div.dropdown{
+    position: relative;
+    display: inline-block;
+    margin: 0px;
+    left: 25%;
+    z-index: 999;
+}
+button.dropbt{
+    width:200px;
+    background-color: #ffffff;
+    color: blue;
+    padding: 10px;
+    margin: 0px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+div.content{
+    display: none;
+    position: absolute;
+    margin: 0px;
+    background-color: #e4e4e4;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+div.content a{
+
+    color: blue;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+div.dropdown:hover .content{
+    display: block;
+}
+div.dropdown:hover .dropbt{
+    background: #44a2ff;
+    color:white;
+}
+div.content a:hover{
+    color: #000000;
+    background-color:#ffffff;
+}
+hr{
+    margin: 0px;
+    padding: 0px;
+}
+#middle{
+    width: 100%;
+    height: 60%;
+    /*border: 2px solid #b3b3b3;*/
+}
+
+#info{
+    width: 100%;
+    height: 10%;
+}
+div p{
+    text-align: center;
+}

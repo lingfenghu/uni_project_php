@@ -1,0 +1,50 @@
+@charset "UTF-8";
+html{
+	overflow: hidden;
+}
+#content{
+	width: 100%;
+	height: 60%;
+	margin: 5% 10% 0px;
+}
+#rule-content{
+	width: 60%;
+	height: 320px;
+}
+#page-inner{
+	text-align: center;
+}
+#content_header{
+	position: relative;
+	display: inline-block;
+	margin: 0px;
+	width: 50%;
+	height: 50px;
+	left: 30%;
+}
+#content_header a{
+	display: inline-block;
+	position: relative;
+	top: -95%;
+	left: 50%;
+}
+#content_box{
+	margin-left: 20%;
+	border: 2px solid #b3b3b3;
+	width: 650px;
+}
+#content_box h3{
+	text-align: center;
+}
+#content_box table{
+	position: relative;
+	left: 12%;
+	border-collapse:separate;
+	border-spacing: 55px 5px;
+}
+#content_box  form textarea{
+	width: 100%;
+	height: 80%;
+	background-color: #f3f3f3;
+
+}

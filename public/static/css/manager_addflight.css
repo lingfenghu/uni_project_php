@@ -1,0 +1,23 @@
+@charset "UTF-8";
+#content h3{
+	text-align: center;
+}
+#contentform{
+	text-align: center;
+}
+#innerheader{
+    position: relative;
+    display: inline-block;
+    margin: 0px;
+    width: 100%;
+    height: 50px;
+    left: 15%;
+}
+#innercontent{
+    margin-left: 15%;
+    border: 2px solid #b3b3b3;
+    width: 850px;
+}
+#contentform input{
+
+}

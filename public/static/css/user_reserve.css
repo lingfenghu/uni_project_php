@@ -1,0 +1,31 @@
+@charset "UTF-8";
+#content_header{
+    position: relative;
+    left:45%;
+    height: 10%;
+}
+#content_box{
+    position: relative;
+    left:10%;
+    width: 80%;
+    height: 100%;
+    /*border: 2px solid #b3b3b3;*/
+}
+#content_box h3{
+    position: relative;
+    left:45%;
+}
+#flight_info{
+    /*position: relative;*/
+    /*left: 0%;*/
+}
+#passenger_info{
+    position: relative;
+    left: 10%;
+}
+#content_box form table{
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*height: 75%;*/
+
+}
